@@ -80,7 +80,7 @@
     "description": "Private, decentralized VPN.",
     "twitter": "https://x.com/nym",
     "website": "https://nym.com",
-    "category": ["vpn"]
+    "category": ["vpn", "privacy"]
   },
   {
     "name": "Eureka Builder",
