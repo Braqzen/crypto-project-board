@@ -10,7 +10,6 @@
     "name": "Uniswap",
     "description": "Decentralized exchange.",
     "twitter": "https://x.com/Uniswap",
-    "website": "https://uniswap.org",
     "category": ["defi", "dex", "exchange", "ethereum"]
   },
   {
@@ -102,7 +101,7 @@
     "description": "Lighthouse consensus client.",
     "twitter": "https://x.com/sigp_io",
     "website": "https://sigmaprime.io",
-    "category": ["consensus", "ethereum"]
+    "category": ["consensus-client", "ethereum"]
   },
   {
     "name": "Titan Builder",
@@ -117,5 +116,94 @@
     "twitter": "https://x.com/OfflineProtocol",
     "website": "https://offlineprotocol.com",
     "category": ["communication", "privacy"]
+  },
+  {
+    "name": "Keystone",
+    "description": "Hardware wallet.",
+    "twitter": "https://x.com/KeystoneWallet",
+    "website": "https://keyst.one",
+    "category": ["wallet", "hardware"]
+  },
+  {
+    "name": "Lodestar",
+    "description": "Ethereum consensus client.",
+    "twitter": "https://x.com/lodestar_eth",
+    "website": "https://lodestar.chainsafe.io",
+    "category": ["consensus-client", "ethereum"]
+  },
+  {
+    "name": "Nimbus",
+    "description": "Ethereum light client.",
+    "twitter": "https://x.com/ethnimbus",
+    "website": "https://nimbus.team",
+    "category": ["light-client", "ethereum"]
+  },
+  {
+    "name": "Prysm",
+    "description": "Ethereum consensus client.",
+    "twitter": "https://x.com/prylabs",
+    "category": ["consensus-client", "ethereum"]
+  },
+  {
+    "name": "Besu",
+    "description": "Ethereum execution client.",
+    "twitter": "https://x.com/hyperledgerbesu",
+    "website": "https://besu.hyperledger.org",
+    "category": ["execution-client", "ethereum"]
+  },
+  {
+    "name": "Nockchain",
+    "description": "Verification network for compute.",
+    "twitter": "https://x.com/nockchain",
+    "website": "https://nockchain.org",
+    "category": ["chain", "proofs"]
+  },
+  {
+    "name": "Anoma",
+    "description": "Intent-centric decentralized solver network.",
+    "twitter": "https://x.com/anoma",
+    "website": "https://anoma.net",
+    "category": ["solver", "intent"]
+  },
+  {
+    "name": "Namada",
+    "description": "Cross-chain privacy preserving blockchain.",
+    "twitter": "https://x.com/namada",
+    "website": "https://namada.net",
+    "category": ["chain", "privacy"]
+  },
+  {
+    "name": "CowSwap",
+    "description": "Decentralized exchange.",
+    "twitter": "https://x.com/CowSwap",
+    "category": ["defi", "dex", "exchange", "ethereum"]
+  },
+  {
+    "name": "Bubblemaps",
+    "description": "Visualizing on-chain activity.",
+    "twitter": "https://x.com/bubblemaps",
+    "website": "https://bubblemaps.io",
+    "category": ["analytics", "tracing"]
+  },
+  {
+    "name": "Enso",
+    "description": "Intent-based cross-chain execution layer/blockchain.",
+    "twitter": "https://x.com/ensobuild",
+    "website": "https://enso.build",
+    "category": ["chain", "intent"]
+  },
+  {
+    "name": "OneBalance",
+    "description": "Cross-chain unified account.",
+    "twitter": "https://x.com/OneBalance_io",
+    "website": "https://onebalance.io",
+    "category": ["wallet"]
+  },
+  {
+    "name": "Phylax Systems",
+    "description": "Risk, compliance, and exploit prevention infrastructure.",
+    "twitter": "https://x.com/phylaxsystems",
+    "website": "https://phylax.systems",
+    "category": ["sidecar", "security"]
   }
 ]
