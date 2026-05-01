@@ -16,15 +16,15 @@ export function ProjectCategoryBadge({
     "text-foreground transition-colors",
     !selected && "border-muted-foreground/35 bg-muted dark:border-border",
     selected &&
-      "border-muted-foreground/62 bg-muted-foreground/20 dark:border-muted-foreground/52 dark:bg-muted-foreground/16",
+      "border-muted-foreground/62 bg-muted-foreground/20 dark:border-muted-foreground/64 dark:bg-muted-foreground/26",
     onToggle &&
       "cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
     onToggle &&
       !selected &&
-      "hover:border-muted-foreground/50 hover:bg-muted-foreground/12 dark:hover:bg-muted-foreground/10",
+      "hover:border-muted-foreground/50 hover:bg-muted-foreground/12 dark:hover:border-muted-foreground/55 dark:hover:bg-muted-foreground/16",
     onToggle &&
       selected &&
-      "hover:bg-muted-foreground/26 dark:hover:bg-muted-foreground/22",
+      "hover:bg-muted-foreground/26 dark:hover:bg-muted-foreground/32",
   );
 
   if (onToggle) {

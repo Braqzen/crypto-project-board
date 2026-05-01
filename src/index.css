@@ -36,16 +36,16 @@
 }
 
 .dark {
-  --background: #191918;
-  --foreground: #eeeeec;
-  --card: #222221;
-  --card-foreground: #eeeeec;
-  --popover: #2a2a28;
-  --primary: #ffca16;
-  --muted: #31312e;
-  --muted-foreground: #b4b2ac;
-  --border: #494844;
-  --ring: #ffca16;
+  --background: #0f1115;
+  --foreground: #e6e9ef;
+  --card: #171b22;
+  --card-foreground: #e6e9ef;
+  --popover: #1d222b;
+  --primary: #f4c542;
+  --muted: #242a33;
+  --muted-foreground: #aab2c0;
+  --border: #313946;
+  --ring: #f4c542;
 }
 
 @layer base {
