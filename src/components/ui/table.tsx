@@ -37,19 +37,6 @@ function TableBody({ className, ...props }: ComponentProps<"tbody">) {
   )
 }
 
-function TableFooter({ className, ...props }: ComponentProps<"tfoot">) {
-  return (
-    <tfoot
-      data-slot="table-footer"
-      className={mergeTailwindClasses(
-        "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
 function TableRow({ className, ...props }: ComponentProps<"tr">) {
   return (
     <tr
@@ -89,26 +76,11 @@ function TableCell({ className, ...props }: ComponentProps<"td">) {
   )
 }
 
-function TableCaption({
-  className,
-  ...props
-}: ComponentProps<"caption">) {
-  return (
-    <caption
-      data-slot="table-caption"
-      className={mergeTailwindClasses("mt-4 text-sm text-muted-foreground", className)}
-      {...props}
-    />
-  )
-}
-
 export {
   Table,
   TableHeader,
   TableBody,
-  TableFooter,
   TableHead,
   TableRow,
   TableCell,
-  TableCaption,
 }

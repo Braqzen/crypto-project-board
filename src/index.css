@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
 @custom-variant dark (&:is(.dark *));
@@ -11,7 +9,6 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
   --color-primary: var(--primary);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -27,7 +24,6 @@
   --foreground: #24292f;
   --card: #ffffff;
   --card-foreground: #24292f;
-  --popover: #ffffff;
   --primary: #0969da;
   --muted: #f6f8fa;
   --muted-foreground: #57606a;
@@ -40,7 +36,6 @@
   --foreground: #e6e9ef;
   --card: #171b22;
   --card-foreground: #e6e9ef;
-  --popover: #1d222b;
   --primary: #f4c542;
   --muted: #242a33;
   --muted-foreground: #aab2c0;
