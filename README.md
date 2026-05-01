@@ -6,9 +6,10 @@ Seemingly suspicious projects are not added but otherwise projects are not vette
 
 ## Usage
 
-**1.** Use the search bar to find a project \
-**2.** Use the filter dropdown to filter by project category \
-**3.** Click on a category chip in the table to filter by category
+**1.** Open the [website](https://braqzen.github.io/crypto-project-board/) \
+**2.** Use the search bar to find a project \
+**3.** Use the filter dropdown to filter by project category \
+**4.** Click on a category chip in the table to filter by category
 
 ## Contributing
 
