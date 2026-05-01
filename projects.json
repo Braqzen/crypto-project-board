@@ -205,5 +205,40 @@
     "twitter": "https://x.com/phylaxsystems",
     "website": "https://phylax.systems",
     "category": ["sidecar", "security"]
+  },
+  {
+    "name": "Beaver Builder",
+    "description": "Neutral Ethereum Block Builder.",
+    "twitter": "https://x.com/beaverbuild",
+    "website": "https://beaverbuild.org",
+    "category": ["ethereum", "block-builder"]
+  },
+  {
+    "name": "DA Builder",
+    "description": "Neutral Ethereum Block Builder.",
+    "twitter": "https://x.com/spire_labs",
+    "website": "https://www.spire.dev/",
+    "category": ["ethereum", "block-builder"]
+  },
+  {
+    "name": "Quasar Builder",
+    "description": "Neutral Ethereum Block Builder.",
+    "twitter": "https://x.com/QuasarBuilder",
+    "website": "https://quasar.win",
+    "category": ["ethereum", "block-builder"]
+  },
+  {
+    "name": "Fileverse",
+    "description": "Private collaboration suite.",
+    "twitter": "https://x.com/fileverse",
+    "website": "https://fileverse.io",
+    "category": ["privacy"]
+  },
+  {
+    "name": "SilentSwap",
+    "description": "Private decentralized cross-chain exchange.",
+    "twitter": "https://x.com/SilentSwap",
+    "website": "https://silentswap.com",
+    "category": ["defi", "dex", "exchange", "privacy"]
   }
 ]
