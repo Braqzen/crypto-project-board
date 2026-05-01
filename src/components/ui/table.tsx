@@ -21,7 +21,7 @@ function TableHeader({ className, ...props }: ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={mergeTailwindClasses("[&_tr]:border-b", className)}
+      className={mergeTailwindClasses(className)}
       {...props}
     />
   )

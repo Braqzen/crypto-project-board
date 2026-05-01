@@ -4,34 +4,34 @@
     "description": "Open source liquidity protocol for earning interest on deposits and borrowing assets.",
     "twitter": "https://x.com/aaveaave",
     "website": "https://aave.com",
-    "tags": ["defi", "lending", "ethereum"]
+    "category": ["defi", "lending", "ethereum"]
   },
   {
     "name": "Uniswap",
     "description": "Automated market maker DEX and liquidity protocol on Ethereum and L2s.",
     "twitter": "https://x.com/Uniswap",
     "website": "https://uniswap.org",
-    "tags": ["defi", "dex", "ethereum"]
+    "category": ["defi", "dex", "ethereum"]
   },
   {
     "name": "Phantom",
     "description": "Self-custody wallet focused on Solana with multi-chain support.",
     "twitter": "https://twitter.com/phantom",
     "website": "https://phantom.app",
-    "tags": ["wallet", "solana"]
+    "category": ["wallet", "solana"]
   },
   {
     "name": "Ledger",
     "description": "Hardware wallets and secure key storage for digital assets.",
     "twitter": "https://x.com/Ledger",
     "website": "https://www.ledger.com",
-    "tags": ["wallet", "hardware", "security"]
+    "category": ["wallet", "hardware", "security"]
   },
   {
     "name": "OpenSea",
     "description": "NFT marketplace for discovering, buying, and selling digital collectibles.",
     "twitter": "https://x.com/opensea",
     "website": "https://opensea.io",
-    "tags": ["nft", "marketplace", "ethereum"]
+    "category": ["nft", "marketplace", "ethereum"]
   }
 ]

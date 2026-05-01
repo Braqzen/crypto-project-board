@@ -3,5 +3,5 @@ export type Project = {
   description: string;
   twitter?: string;
   website?: string;
-  tags: string[];
+  category: string[];
 };

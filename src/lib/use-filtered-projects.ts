@@ -4,15 +4,15 @@ import type { Project } from "types/project";
 export function useFilteredProjects(
   projects: readonly Project[],
   searchQuery: string,
-  selectedTags: ReadonlySet<string>,
+  selectedCategories: ReadonlySet<string>,
 ) {
-  const allTags = useMemo(() => {
-    const uniqueTags = new Set<string>();
+  const allCategories = useMemo(() => {
+    const unique = new Set<string>();
     for (const project of projects) {
-      for (const tag of project.tags) uniqueTags.add(tag);
+      for (const category of project.category) unique.add(category);
     }
-    return [...uniqueTags].sort((firstTag, secondTag) =>
-      firstTag.localeCompare(secondTag, undefined, { sensitivity: "base" }),
+    return [...unique].sort((a, b) =>
+      a.localeCompare(b, undefined, { sensitivity: "base" }),
     );
   }, [projects]);
 
@@ -21,11 +21,11 @@ export function useFilteredProjects(
     const matchingProjects = projects.filter((project) => {
       if (searchQueryLowercase) {
         const combinedSearchText =
-          `${project.name} ${project.description} ${project.tags.join(" ")}`.toLowerCase();
+          `${project.name} ${project.description} ${project.category.join(" ")}`.toLowerCase();
         if (!combinedSearchText.includes(searchQueryLowercase)) return false;
       }
-      for (const tag of selectedTags) {
-        if (!project.tags.includes(tag)) return false;
+      for (const category of selectedCategories) {
+        if (!project.category.includes(category)) return false;
       }
       return true;
     });
@@ -34,7 +34,7 @@ export function useFilteredProjects(
         sensitivity: "base",
       }),
     );
-  }, [projects, searchQuery, selectedTags]);
+  }, [projects, searchQuery, selectedCategories]);
 
-  return { allTags, filteredProjects };
+  return { allCategories, filteredProjects };
 }

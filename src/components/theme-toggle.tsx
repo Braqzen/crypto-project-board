@@ -21,12 +21,13 @@ export function ThemeToggle({ className, ...props }: ComponentProps<"button">) {
     <button
       type="button"
       className={mergeTailwindClasses(
-        "inline-flex size-10 shrink-0 items-center justify-center rounded-md border border-border bg-background",
-        "text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "table-elevated-surface inline-flex size-10 shrink-0 items-center justify-center rounded-md",
+        "text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className,
       )}
       onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
       aria-label={theme === "dark" ? "Use light theme" : "Use dark theme"}
+      title={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
       {...props}
     >
       {theme === "dark" ? (
