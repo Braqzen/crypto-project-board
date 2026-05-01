@@ -7,7 +7,8 @@ import tailwindcss from "@tailwindcss/vite";
 const srcDir = fileURLToPath(new URL("./src", import.meta.url));
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === "serve" ? "/" : "/crypto-project-board/",
   plugins: [react(), babel({ presets: [reactCompilerPreset()] }), tailwindcss()],
   resolve: {
     alias: {
@@ -16,4 +17,4 @@ export default defineConfig({
       "types/": `${srcDir}/types/`,
     },
   },
-});
+}));
