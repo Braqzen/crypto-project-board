@@ -1,37 +1,121 @@
 [
   {
     "name": "Aave",
-    "description": "Open source liquidity protocol for earning interest on deposits and borrowing assets.",
+    "description": "Non-custodial liquidity protocol (borrowing and lending).",
     "twitter": "https://x.com/aaveaave",
     "website": "https://aave.com",
-    "category": ["defi", "lending", "ethereum"]
+    "category": ["defi", "ethereum"]
   },
   {
     "name": "Uniswap",
-    "description": "Automated market maker DEX and liquidity protocol on Ethereum and L2s.",
+    "description": "Decentralized exchange.",
     "twitter": "https://x.com/Uniswap",
     "website": "https://uniswap.org",
-    "category": ["defi", "dex", "ethereum"]
+    "category": ["defi", "dex", "exchange", "ethereum"]
   },
   {
     "name": "Phantom",
-    "description": "Self-custody wallet focused on Solana with multi-chain support.",
+    "description": "Browser based hot wallet.",
     "twitter": "https://twitter.com/phantom",
     "website": "https://phantom.app",
     "category": ["wallet", "solana"]
   },
   {
     "name": "Ledger",
-    "description": "Hardware wallets and secure key storage for digital assets.",
+    "description": "Hardware wallet.",
     "twitter": "https://x.com/Ledger",
     "website": "https://www.ledger.com",
-    "category": ["wallet", "hardware", "security"]
+    "category": ["wallet", "hardware"]
   },
   {
     "name": "OpenSea",
-    "description": "NFT marketplace for discovering, buying, and selling digital collectibles.",
+    "description": "NFT marketplace.",
     "twitter": "https://x.com/opensea",
     "website": "https://opensea.io",
     "category": ["nft", "marketplace", "ethereum"]
+  },
+  {
+    "name": "Trezor",
+    "description": "Hardware wallet.",
+    "twitter": "https://x.com/Trezor",
+    "website": "https://trezor.io",
+    "category": ["wallet", "hardware"]
+  },
+  {
+    "name": "MetaMask",
+    "description": "Browser based hot wallet.",
+    "twitter": "https://x.com/MetaMask",
+    "website": "https://metamask.io",
+    "category": ["wallet", "ethereum"]
+  },
+  {
+    "name": "Nonlogs",
+    "description": "Private exchange.",
+    "twitter": "https://x.com/Nonlogs",
+    "website": "https://nonlogs.io",
+    "category": ["exchange", "cex", "privacy"]
+  },
+  {
+    "name": "Monero",
+    "description": "Privacy, anonymous cryptocurrency.",
+    "twitter": "https://x.com/Monero",
+    "website": "https://getmonero.org",
+    "category": ["chain", "privacy"]
+  },
+  {
+    "name": "Zcash",
+    "description": "Privacy cryptocurrency.",
+    "twitter": "https://x.com/Zcash",
+    "website": "https://z.cash",
+    "category": ["chain", "privacy"]
+  },
+  {
+    "name": "Edge Wallet",
+    "description": "Non-custodial hot wallet.",
+    "twitter": "https://x.com/EdgeWallet",
+    "website": "https://edge.app",
+    "category": ["wallet"]
+  },
+  {
+    "name": "Nym",
+    "description": "Private, decentralized VPN.",
+    "twitter": "https://x.com/nym",
+    "website": "https://nym.com",
+    "category": ["vpn"]
+  },
+  {
+    "name": "Eureka Builder",
+    "description": "Programmable Ethereum Block Builder.",
+    "twitter": "https://x.com/EurekaBuilder",
+    "website": "https://eurekabuilder.xyz",
+    "category": ["ethereum", "block-builder"]
+  },
+  {
+    "name": "Signet",
+    "description": "An Ethereum rollup.",
+    "twitter": "https://x.com/signetsh",
+    "website": "https://signet.sh",
+    "category": ["rollup", "ethereum"]
+  },
+  {
+    "name": "Sigma Prime",
+    "description": "Lighthouse consensus client.",
+    "twitter": "https://x.com/sigp_io",
+    "website": "https://sigmaprime.io",
+    "category": ["consensus", "ethereum"]
+  },
+  {
+    "name": "Titan Builder",
+    "description": "Neutral Ethereum Block Builder.",
+    "twitter": "https://x.com/titanbuilderxyz",
+    "website": "https://titanbuilder.xyz",
+    "category": ["ethereum", "block-builder"]
+  },
+  {
+    "name": "Offline Protocol",
+    "description": "Privacy-focused mesh network.",
+    "twitter": "https://x.com/OfflineProtocol",
+    "website": "https://offlineprotocol.com",
+    "category": ["communication", "privacy"]
   }
 ]
