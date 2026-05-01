@@ -56,14 +56,14 @@
   },
   {
     "name": "Monero",
-    "description": "Privacy, anonymous cryptocurrency.",
+    "description": "Private, anonymous cryptocurrency.",
     "twitter": "https://x.com/Monero",
     "website": "https://getmonero.org",
     "category": ["chain", "privacy"]
   },
   {
     "name": "Zcash",
-    "description": "Privacy cryptocurrency.",
+    "description": "Optionally private cryptocurrency.",
     "twitter": "https://x.com/Zcash",
     "website": "https://z.cash",
     "category": ["chain", "privacy"]
