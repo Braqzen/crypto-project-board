@@ -183,7 +183,7 @@
     "description": "Visualizing on-chain activity.",
     "twitter": "https://x.com/bubblemaps",
     "website": "https://bubblemaps.io",
-    "category": ["analytics", "tracing"]
+    "category": ["analytics", "tracking"]
   },
   {
     "name": "Enso",
