@@ -261,5 +261,12 @@
     "twitter": "https://x.com/ethswarm",
     "website": "https://ethswarm.org/",
     "category": ["storage", "communication"]
+  },
+  {
+    "name": "Thorchain",
+    "description": "Decentralized cross-chain exchange for native assets.",
+    "twitter": "https://x.com/THORChain",
+    "website": "https://thorchain.org",
+    "category": ["defi", "dex", "exchange"]
   }
 ]
