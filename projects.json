@@ -105,7 +105,7 @@
   },
   {
     "name": "Titan Builder",
-    "description": "Neutral Ethereum Block Builder.",
+    "description": "Ethereum Block Builder.",
     "twitter": "https://x.com/titanbuilderxyz",
     "website": "https://titanbuilder.xyz",
     "category": ["ethereum", "block-builder"]
@@ -208,21 +208,21 @@
   },
   {
     "name": "Beaver Builder",
-    "description": "Neutral Ethereum Block Builder.",
+    "description": "Ethereum Block Builder.",
     "twitter": "https://x.com/beaverbuild",
     "website": "https://beaverbuild.org",
     "category": ["ethereum", "block-builder"]
   },
   {
     "name": "DA Builder",
-    "description": "Neutral Ethereum Block Builder.",
+    "description": "Ethereum Block Builder.",
     "twitter": "https://x.com/spire_labs",
     "website": "https://www.spire.dev/",
     "category": ["ethereum", "block-builder"]
   },
   {
     "name": "Quasar Builder",
-    "description": "Neutral Ethereum Block Builder.",
+    "description": "Ethereum Block Builder.",
     "twitter": "https://x.com/QuasarBuilder",
     "website": "https://quasar.win",
     "category": ["ethereum", "block-builder"]
@@ -240,5 +240,26 @@
     "twitter": "https://x.com/SilentSwap",
     "website": "https://silentswap.com",
     "category": ["defi", "dex", "exchange", "privacy"]
+  },
+  {
+    "name": "Intuition",
+    "description": "Decentralized knowledge graph.",
+    "twitter": "https://x.com/0xIntuition",
+    "website": "https://intuition.systems",
+    "category": ["reputation", "attestation", "data", "chain"]
+  },
+  {
+    "name": "Irys",
+    "description": "Decentralized programmable datachain.",
+    "twitter": "https://x.com/irys_xyz",
+    "website": "https://irys.xyz",
+    "category": ["storage", "data", "chain"]
+  },
+  {
+    "name": "Swarm",
+    "description": "Decentralised storage and content delivery network.",
+    "twitter": "https://x.com/ethswarm",
+    "website": "https://ethswarm.org/",
+    "category": ["storage", "communication"]
   }
 ]
