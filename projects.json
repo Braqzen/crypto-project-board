@@ -268,5 +268,19 @@
     "twitter": "https://x.com/THORChain",
     "website": "https://thorchain.org",
     "category": ["defi", "dex", "exchange"]
+  },
+  {
+    "name": "Orchid",
+    "description": "Decentralized P2P PAYG marketplace for bandwidth (VPN).",
+    "twitter": "https://x.com/Orchidprivacy",
+    "website": "https://www.orchid.com",
+    "category": ["vpn"]
+  },
+  {
+    "name": "Sentinel",
+    "description": "Decentralized P2P layer for bandwidth (VPN).",
+    "twitter": "https://x.com/SentinelP2P",
+    "website": "https://sentinel.co",
+    "category": ["vpn"]
   }
 ]
