@@ -7,7 +7,7 @@ type CategoryMatchModeToggleProps = {
 };
 
 const segmentBase =
-  "flex size-full items-center justify-center px-3 outline-none transition-colors rounded-none focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset";
+  "cursor-pointer flex size-full items-center justify-center px-3 outline-none transition-colors rounded-none focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset";
 
 const segmentInactive =
   "bg-transparent text-muted-foreground hover:bg-muted/45 hover:text-foreground";
