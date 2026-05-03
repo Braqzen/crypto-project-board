@@ -191,6 +191,81 @@ function nudgeAwayFromHubAnchors(
   return p;
 }
 
+/**
+ * Light overlap resolution between project billboard anchors vs each other and tag hubs.
+ * Runs once during layout build; cost is O(pass * (n² + n * hubs)).
+ */
+function relaxProjectAnchorsAgainstOverlap(
+  projectNodes: TagGraphProjectNode[],
+  originals: THREE.Vector3[],
+  hubAnchorsWorld: readonly THREE.Vector3[],
+  hubSphereRadius: number,
+): void {
+  const n = projectNodes.length;
+  if (n === 0) return;
+
+  const minProjProj = hubSphereRadius * 0.092;
+  const minProjHub = hubSphereRadius * 0.052;
+  const maxDrift = hubSphereRadius * 0.34;
+  const passes = 5;
+
+  const d = new THREE.Vector3();
+
+  const clampTowardOriginal = (i: number): void => {
+    const pos = projectNodes[i]!.position;
+    const orig = originals[i]!;
+    d.copy(pos).sub(orig);
+    const len = d.length();
+    if (len <= maxDrift || len < 1e-14) return;
+    d.multiplyScalar(maxDrift / len);
+    pos.copy(orig).add(d);
+  };
+
+  for (let pass = 0; pass < passes; pass++) {
+    for (let i = 0; i < n; i++) {
+      const pi = projectNodes[i]!.position;
+      for (let j = i + 1; j < n; j++) {
+        const pj = projectNodes[j]!.position;
+        d.subVectors(pj, pi);
+        const distSq = d.lengthSq();
+        const targetSq = minProjProj * minProjProj;
+        if (distSq >= targetSq || distSq < 1e-16) continue;
+        if (distSq < 1e-22) {
+          d.copy(jitterFromSeed(`${projectNodes[i]!.id}|sep|${j}|${pass}`, hubSphereRadius * 0.02));
+          pi.add(d);
+          continue;
+        }
+        const dist = Math.sqrt(distSq);
+        const scale = ((minProjProj - dist) * 0.5) / dist;
+        pi.addScaledVector(d, -scale);
+        pj.addScaledVector(d, scale);
+      }
+    }
+
+    if (hubAnchorsWorld.length > 0) {
+      for (let i = 0; i < n; i++) {
+        const pos = projectNodes[i]!.position;
+        for (let h = 0; h < hubAnchorsWorld.length; h++) {
+          const hub = hubAnchorsWorld[h]!;
+          d.copy(pos).sub(hub);
+          const dist = d.length();
+          if (dist < 1e-12) {
+            d.copy(jitterFromSeed(`${projectNodes[i]!.id}|hub|${h}|${pass}`, hubSphereRadius * 0.02));
+            pos.add(d);
+            continue;
+          }
+          if (dist >= minProjHub) continue;
+          const push = minProjHub - dist;
+          d.multiplyScalar(push / dist);
+          pos.add(d);
+        }
+      }
+    }
+
+    for (let i = 0; i < n; i++) clampTowardOriginal(i);
+  }
+}
+
 function uniqueSortedTagsFromCategory(category: readonly string[]): readonly string[] {
   return [...new Set(category)].sort((a, b) => a.localeCompare(b));
 }
@@ -269,6 +344,14 @@ export function buildTagGraphLayout(
       links.push({ fromId: id, toId: `hub:${tag}` });
     }
   }
+
+  const originalProjectPositions = projectNodes.map((node) => node.position.clone());
+  relaxProjectAnchorsAgainstOverlap(
+    projectNodes,
+    originalProjectPositions,
+    [...hubPositions.values()],
+    hubSphereRadius,
+  );
 
   const hubs: TagGraphHub[] = hubTags.map((tag) => ({
     tag,
