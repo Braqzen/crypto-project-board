@@ -21,7 +21,7 @@ export function ThemeToggle({ className, ...props }: ComponentProps<"button">) {
     <button
       type="button"
       className={mergeTailwindClasses(
-        "table-elevated-surface inline-flex size-10 shrink-0 items-center justify-center rounded-md",
+        "table-elevated-surface inline-flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-md",
         "text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className,
       )}

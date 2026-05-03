@@ -3,6 +3,7 @@ import projectsData from "../projects.json";
 import { GithubIcon } from "components/icons/github-icon";
 import { ProjectsTable } from "components/projects/projects-table";
 import { ProjectsToolbar } from "components/projects/projects-toolbar";
+import { TagGraphVisualizationButton } from "components/tag-graph/tag-graph-visualization-button";
 import { ThemeToggle } from "components/theme-toggle";
 import { mergeTailwindClasses } from "lib/utils";
 import { useFilteredProjects } from "lib/use-filtered-projects";
@@ -54,6 +55,7 @@ export default function App() {
               onToggleCategory={toggleCategory}
             />
             <div className="flex shrink-0 items-end gap-2 self-end">
+              <TagGraphVisualizationButton />
               <ThemeToggle />
               <a
                 href="https://github.com/Braqzen/crypto-project-board"
