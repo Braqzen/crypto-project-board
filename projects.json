@@ -97,8 +97,8 @@
     "category": ["rollup", "ethereum"]
   },
   {
-    "name": "Sigma Prime",
-    "description": "Lighthouse consensus client.",
+    "name": "Lighthouse",
+    "description": "Ethereum consensus client.",
     "twitter": "https://x.com/sigp_io",
     "website": "https://sigmaprime.io",
     "category": ["consensus-client", "ethereum"]
