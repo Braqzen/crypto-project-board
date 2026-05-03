@@ -1,6 +1,8 @@
 import type { ComponentProps } from "react";
-import { ProjectSearchField } from "components/projects/project-search-field";
 import { CategoryFilter } from "components/projects/category-filter";
+import { CategoryMatchModeToggle } from "components/projects/category-match-mode-toggle";
+import { ProjectSearchField } from "components/projects/project-search-field";
+import type { CategoryTagMatchMode } from "lib/use-filtered-projects";
 import { mergeTailwindClasses } from "lib/utils";
 
 type ProjectsToolbarProps = {
@@ -9,6 +11,8 @@ type ProjectsToolbarProps = {
   allCategories: readonly string[];
   selectedCategories: ReadonlySet<string>;
   onToggleCategory: (category: string) => void;
+  categoryTagMatchMode: CategoryTagMatchMode;
+  onCategoryTagMatchModeChange: (mode: CategoryTagMatchMode) => void;
 } & Pick<ComponentProps<"div">, "className">;
 
 export function ProjectsToolbar({
@@ -17,6 +21,8 @@ export function ProjectsToolbar({
   allCategories,
   selectedCategories,
   onToggleCategory,
+  categoryTagMatchMode,
+  onCategoryTagMatchModeChange,
   className,
 }: ProjectsToolbarProps) {
   return (
@@ -29,11 +35,17 @@ export function ProjectsToolbar({
       <div className="min-w-0 max-w-5xl flex-1">
         <ProjectSearchField value={query} onChange={onQueryChange} />
       </div>
-      <CategoryFilter
-        categories={allCategories}
-        selected={selectedCategories}
-        onToggle={onToggleCategory}
-      />
+      <div className="flex flex-wrap items-end gap-2">
+        <CategoryFilter
+          categories={allCategories}
+          selected={selectedCategories}
+          onToggle={onToggleCategory}
+        />
+        <CategoryMatchModeToggle
+          value={categoryTagMatchMode}
+          onChange={onCategoryTagMatchModeChange}
+        />
+      </div>
     </div>
   );
 }

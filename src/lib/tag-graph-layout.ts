@@ -13,6 +13,8 @@ export type TagGraphProjectNode = {
   id: string;
   label: string;
   description: string;
+  twitter?: string;
+  website?: string;
   hubTagsOnProject: string[];
   orphanTagsOnProject: string[];
   /** Unique tags from the dataset used for centroid and sidebar. */
@@ -248,10 +250,15 @@ export function buildTagGraphLayout(
       position.setFromSphericalCoords(rho, phi, theta);
     }
 
+    const twitter = project.twitter?.trim() || undefined;
+    const website = project.website?.trim() || undefined;
+
     projectNodes.push({
       id,
       label: project.name,
       description: project.description,
+      ...(twitter ? { twitter } : {}),
+      ...(website ? { website } : {}),
       hubTagsOnProject,
       orphanTagsOnProject,
       tagsUniqueSorted,

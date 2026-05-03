@@ -6,11 +6,9 @@ import * as THREE from "three";
 
 import type { TagGraphLayout, TagGraphProjectNode } from "lib/tag-graph-layout";
 
-function colorFromLabel(label: string): string {
-  const h = [...label].reduce((acc, ch) => (acc << 5) - acc + ch.charCodeAt(0), 0);
-  const hue = Math.abs(h % 360);
-  return `hsl(${hue}, 72%, 58%)`;
-}
+/** Warm amber tags; selected stays saturated (avoid pale yellow). */
+const HUB_TAG_COLOR = "#f59e0b";
+const HUB_TAG_COLOR_SELECTED = "#fbbf24";
 
 function DampingOrbitControls() {
   const controlsRef = useRef<OrbitControls | null>(null);
@@ -80,8 +78,8 @@ function MutedLinks({ geometry }: { geometry: THREE.BufferGeometry }) {
   }, [geometry]);
 
   return (
-    <lineSegments geometry={geometry}>
-      <lineBasicMaterial color="#94a3b8" opacity={0.09} transparent depthWrite={false} />
+    <lineSegments geometry={geometry} renderOrder={0}>
+      <lineBasicMaterial color="#a1b5c9" opacity={0.125} transparent depthWrite={false} />
     </lineSegments>
   );
 }
@@ -92,8 +90,17 @@ function HighlightLinks({ geometry }: { geometry: THREE.BufferGeometry }) {
   }, [geometry]);
 
   return (
-    <lineSegments geometry={geometry}>
-      <lineBasicMaterial color="#f1f5f9" opacity={0.95} transparent depthWrite={false} />
+    <lineSegments geometry={geometry} renderOrder={1}>
+      <lineBasicMaterial
+        color="#ffffff"
+        opacity={1}
+        transparent
+        depthWrite={false}
+        toneMapped={false}
+        polygonOffset
+        polygonOffsetFactor={-2}
+        polygonOffsetUnits={-1}
+      />
     </lineSegments>
   );
 }
@@ -162,13 +169,11 @@ function HubNodes({
     const selectedHere = selected?.kind === "hub" && selected.tag === h.tag;
     const connected = hubIsConnected(selected, h.tag);
     const dim = hubDim(selected, h.tag);
-    const scale = selectedHere ? 1.22 : connected ? 1.08 : 1;
-    const base = selectedHere ? "#f8fafc" : colorFromLabel(h.tag);
+    const scale = selectedHere ? 1.12 : connected ? 1.08 : 1;
+    const base = selectedHere ? HUB_TAG_COLOR_SELECTED : HUB_TAG_COLOR;
     const fontSize =
-      (fontByTag.get(h.tag) ?? 0.34) * (selectedHere ? 1.06 : connected && selected ? 1.03 : 1);
-    let outlineWidth = fontSize * 0.046;
-    if (selectedHere) outlineWidth *= 1.12;
-    if (connected && selected && selectedHere !== true) outlineWidth *= 1.08;
+      (fontByTag.get(h.tag) ?? 0.34) * (selectedHere ? 1.02 : connected && selected ? 1.03 : 1);
+    const outlineWidth = fontSize * 0.006;
     const fillOpacity = !selected ? 1 : connected && !dim ? (selectedHere ? 1 : 0.93) : 0.13;
     return (
       <group key={h.tag} position={[h.position.x, h.position.y, h.position.z]} scale={scale}>
@@ -183,8 +188,8 @@ function HubNodes({
             color={base}
             fillOpacity={fillOpacity}
             outlineWidth={outlineWidth}
-            outlineColor={selectedHere ? "#1e293b" : "#151821"}
-            outlineOpacity={dim ? 0.22 : selectedHere ? 1 : connected && selected ? 0.93 : 0.88}
+            outlineColor={selectedHere ? "#d97706" : "#fef3c7"}
+            outlineOpacity={dim ? 0.22 : selectedHere ? 0.55 : connected && selected ? 0.74 : 0.68}
             depthOffset={selectedHere ? 6 : connected && selected ? 3 : 0}
             onClick={(event: ThreeEvent<MouseEvent>) => {
               event.stopPropagation();
@@ -215,7 +220,7 @@ function ProjectNodes({
     const scale = selectedHere ? 1.18 : connected && selected ? 1.06 : 1;
     const fontSize = selectedHere ? 0.164 : connected && selected && !dim ? 0.142 : 0.126;
     const fillProj = !selected ? 1 : connected && !dim ? 1 : 0.12;
-    const outlineProj = dim ? 0.2 : selectedHere ? 1 : connected && selected ? 0.96 : 0.78;
+    const outlineProj = dim ? 0.26 : selectedHere ? 0.78 : connected && selected ? 0.73 : 0.66;
     return (
       <group key={p.id} position={[p.position.x, p.position.y, p.position.z]} scale={scale}>
         <Billboard follow={true} lockX={false} lockY={false} lockZ={false}>
@@ -228,8 +233,8 @@ function ProjectNodes({
             lineHeight={1.06}
             color={selectedHere ? "#ffffff" : connected && selected ? "#f1f5f9" : "#c8d5e4"}
             fillOpacity={fillProj}
-            outlineWidth={selectedHere ? 0.024 : 0.014}
-            outlineColor="#141826"
+            outlineWidth={selectedHere ? 0.003 : 0.002}
+            outlineColor="#e8edf6"
             outlineOpacity={outlineProj}
             depthOffset={selectedHere ? 6 : connected && selected ? 3 : 0}
             onClick={(event: ThreeEvent<MouseEvent>) => {

@@ -1,3 +1,4 @@
+import type { ComponentProps } from "react";
 import { useEffect, useRef, useState } from "react";
 import { mergeTailwindClasses } from "lib/utils";
 
@@ -5,9 +6,9 @@ type CategoryFilterProps = {
   categories: readonly string[];
   selected: ReadonlySet<string>;
   onToggle: (category: string) => void;
-};
+} & Pick<ComponentProps<"div">, "className">;
 
-export function CategoryFilter({ categories, selected, onToggle }: CategoryFilterProps) {
+export function CategoryFilter({ categories, selected, onToggle, className }: CategoryFilterProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -24,7 +25,10 @@ export function CategoryFilter({ categories, selected, onToggle }: CategoryFilte
   }, [open]);
 
   return (
-    <div ref={containerRef} className="flex flex-col sm:w-64">
+    <div
+      ref={containerRef}
+      className={mergeTailwindClasses("flex flex-col sm:w-64", className)}
+    >
       <details
         className="relative"
         open={open}

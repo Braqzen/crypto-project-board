@@ -6,7 +6,7 @@ import { ProjectsToolbar } from "components/projects/projects-toolbar";
 import { TagGraphVisualizationButton } from "components/tag-graph/tag-graph-visualization-button";
 import { ThemeToggle } from "components/theme-toggle";
 import { mergeTailwindClasses } from "lib/utils";
-import { useFilteredProjects } from "lib/use-filtered-projects";
+import { useFilteredProjects, type CategoryTagMatchMode } from "lib/use-filtered-projects";
 import type { Project } from "types/project";
 
 const projects = projectsData as Project[];
@@ -14,11 +14,14 @@ const projects = projectsData as Project[];
 export default function App() {
   const [query, setQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<Set<string>>(() => new Set());
+  const [categoryTagMatchMode, setCategoryTagMatchMode] =
+    useState<CategoryTagMatchMode>("all");
 
   const { allCategories, filteredProjects } = useFilteredProjects(
     projects,
     query,
     selectedCategories,
+    categoryTagMatchMode,
   );
 
   const toggleCategory = useCallback((category: string) => {
@@ -53,9 +56,18 @@ export default function App() {
               allCategories={allCategories}
               selectedCategories={selectedCategories}
               onToggleCategory={toggleCategory}
+              categoryTagMatchMode={categoryTagMatchMode}
+              onCategoryTagMatchModeChange={setCategoryTagMatchMode}
             />
             <div className="flex shrink-0 items-end gap-2 self-end">
-              <TagGraphVisualizationButton />
+              <TagGraphVisualizationButton
+                filteredProjects={filteredProjects}
+                allCategories={allCategories}
+                selectedCategories={selectedCategories}
+                onToggleCategory={toggleCategory}
+                categoryTagMatchMode={categoryTagMatchMode}
+                onCategoryTagMatchModeChange={setCategoryTagMatchMode}
+              />
               <ThemeToggle />
               <a
                 href="https://github.com/Braqzen/crypto-project-board"

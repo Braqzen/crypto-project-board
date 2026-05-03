@@ -1,10 +1,14 @@
 import { useMemo } from "react";
 import type { Project } from "types/project";
 
+/** all: AND every selected category. any: OR at least one selected category. */
+export type CategoryTagMatchMode = "all" | "any";
+
 export function useFilteredProjects(
   projects: readonly Project[],
   searchQuery: string,
   selectedCategories: ReadonlySet<string>,
+  categoryTagMatchMode: CategoryTagMatchMode,
 ) {
   const allCategories = useMemo(() => {
     const unique = new Set<string>();
@@ -24,9 +28,20 @@ export function useFilteredProjects(
           `${project.name} ${project.description} ${project.category.join(" ")}`.toLowerCase();
         if (!combinedSearchText.includes(searchQueryLowercase)) return false;
       }
-      for (const category of selectedCategories) {
-        if (!project.category.includes(category)) return false;
+      if (selectedCategories.size === 0) return true;
+
+      const tagsOnProject = project.category;
+      if (categoryTagMatchMode === "all") {
+        for (const category of selectedCategories) {
+          if (!tagsOnProject.includes(category)) return false;
+        }
+      } else {
+        const anyHit = [...selectedCategories].some((category) =>
+          tagsOnProject.includes(category),
+        );
+        if (!anyHit) return false;
       }
+
       return true;
     });
     return [...matchingProjects].sort((firstProject, secondProject) =>
@@ -34,7 +49,7 @@ export function useFilteredProjects(
         sensitivity: "base",
       }),
     );
-  }, [projects, searchQuery, selectedCategories]);
+  }, [projects, searchQuery, selectedCategories, categoryTagMatchMode]);
 
   return { allCategories, filteredProjects };
 }

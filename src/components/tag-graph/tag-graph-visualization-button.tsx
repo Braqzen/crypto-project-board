@@ -1,12 +1,24 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Boxes } from "lucide-react";
-import projectsData from "../../../projects.json";
+import { Boxes, Globe } from "lucide-react";
+import { CategoryFilter } from "components/projects/category-filter";
+import { CategoryMatchModeToggle } from "components/projects/category-match-mode-toggle";
+import { TwitterIcon } from "components/icons/twitter-icon";
+import { ProjectIconLink } from "components/projects/project-icon-link";
 import { TagGraphScene, type PickPayload } from "components/tag-graph/tag-graph-scene";
 import { buildTagGraphLayout, type TagGraphLayout } from "lib/tag-graph-layout";
+import type { CategoryTagMatchMode } from "lib/use-filtered-projects";
 import { mergeTailwindClasses } from "lib/utils";
 import type { Project } from "types/project";
 
-const projects = projectsData as Project[];
+export type TagGraphVisualizationButtonProps = {
+  className?: string;
+  filteredProjects: readonly Project[];
+  allCategories: readonly string[];
+  selectedCategories: ReadonlySet<string>;
+  onToggleCategory: (category: string) => void;
+  categoryTagMatchMode: CategoryTagMatchMode;
+  onCategoryTagMatchModeChange: (mode: CategoryTagMatchMode) => void;
+};
 
 const categoryRowClass =
   "flex flex-wrap items-baseline justify-between gap-2 rounded-md border border-border bg-muted/30 px-3 py-2 text-sm leading-snug transition-colors";
@@ -14,16 +26,38 @@ const categoryRowClass =
 const categoryRowHoverClass =
   "hover:border-muted-foreground/50 hover:bg-muted-foreground/12 dark:hover:border-muted-foreground/55 dark:hover:bg-muted-foreground/16 focus-visible:border-muted-foreground/50 focus-visible:bg-muted-foreground/12 dark:focus-visible:border-muted-foreground/55 dark:focus-visible:bg-muted-foreground/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
+function selectionStillInLayout(selection: Exclude<PickPayload, null>, layout: TagGraphLayout): boolean {
+  if (selection.kind === "hub") {
+    return layout.hubs.some((h) => h.tag === selection.tag);
+  }
+  return layout.projects.some((n) => n.id === selection.node.id);
+}
+
+function activePick(selection: PickPayload, layout: TagGraphLayout): PickPayload {
+  if (!selection || !selectionStillInLayout(selection, layout)) return null;
+  return selection;
+}
+
 function TagSidePanel({
   selection,
   layout,
   tagProjectCounts,
   pick,
+  allCategories,
+  selectedCategories,
+  onToggleCategory,
+  categoryTagMatchMode,
+  onCategoryTagMatchModeChange,
 }: {
   selection: PickPayload;
   layout: TagGraphLayout;
   tagProjectCounts: ReadonlyMap<string, number>;
   pick: (payload: PickPayload) => void;
+  allCategories: readonly string[];
+  selectedCategories: ReadonlySet<string>;
+  onToggleCategory: (category: string) => void;
+  categoryTagMatchMode: CategoryTagMatchMode;
+  onCategoryTagMatchModeChange: (mode: CategoryTagMatchMode) => void;
 }) {
   if (!selection) {
     return (
@@ -32,6 +66,18 @@ function TagSidePanel({
           Drag to rotate, zoom with the wheel, click a label to inspect. Escape or click outside
           exits.
         </p>
+        <div className="flex shrink-0 flex-wrap items-end gap-2 text-foreground">
+          <CategoryFilter
+            categories={allCategories}
+            selected={selectedCategories}
+            onToggle={onToggleCategory}
+            className="min-w-0 flex-1 sm:min-w-[12rem]"
+          />
+          <CategoryMatchModeToggle
+            value={categoryTagMatchMode}
+            onChange={onCategoryTagMatchModeChange}
+          />
+        </div>
       </div>
     );
   }
@@ -78,9 +124,28 @@ function TagSidePanel({
   return (
     <div className="flex h-full min-h-0 flex-col gap-5 text-base">
       <div>
-        <p className="text-xl font-semibold leading-tight tracking-tight text-foreground sm:text-2xl">
-          {node.label}
-        </p>
+        <div className="flex items-center justify-between gap-3">
+          <p className="min-w-0 flex-1 text-xl font-semibold leading-tight tracking-tight text-foreground sm:text-2xl">
+            {node.label}
+          </p>
+          {node.twitter || node.website ? (
+            <div className="flex shrink-0 items-center gap-4">
+              {node.twitter ? (
+                <ProjectIconLink
+                  href={node.twitter}
+                  aria-label={`${node.label} on Twitter`}
+                >
+                  <TwitterIcon className="size-[1.3125rem]" />
+                </ProjectIconLink>
+              ) : null}
+              {node.website ? (
+                <ProjectIconLink href={node.website} aria-label={`${node.label} website`}>
+                  <Globe className="size-[1.3125rem]" aria-hidden />
+                </ProjectIconLink>
+              ) : null}
+            </div>
+          ) : null}
+        </div>
         <p className="mt-2 leading-relaxed text-muted-foreground">{node.description}</p>
       </div>
       <div className="flex min-h-0 flex-1 flex-col gap-2">
@@ -113,27 +178,47 @@ function TagSidePanel({
   );
 }
 
-export function TagGraphVisualizationButton({ className }: { className?: string }) {
+export function TagGraphVisualizationButton({
+  className,
+  filteredProjects,
+  allCategories,
+  selectedCategories,
+  onToggleCategory,
+  categoryTagMatchMode,
+  onCategoryTagMatchModeChange,
+}: TagGraphVisualizationButtonProps) {
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState<PickPayload>(null);
   const sidePanelWrapRef = useRef<HTMLDivElement>(null);
 
-  const layout = useMemo(() => buildTagGraphLayout(projects), []);
+  const layout = useMemo(() => buildTagGraphLayout(filteredProjects), [filteredProjects]);
 
-  const pick = useCallback((payload: PickPayload) => {
-    setSelection((prev) => {
-      if (payload === null) return null;
-      if (prev?.kind === "hub" && payload.kind === "hub" && prev.tag === payload.tag) return null;
-      if (
-        prev?.kind === "project" &&
-        payload.kind === "project" &&
-        prev.node.id === payload.node.id
-      ) {
-        return null;
-      }
-      return payload;
-    });
-  }, []);
+  const displaySelection = useMemo(() => activePick(selection, layout), [selection, layout]);
+
+  const pick = useCallback(
+    (payload: PickPayload) => {
+      setSelection((prev) => {
+        const prevActive = activePick(prev, layout);
+        if (payload === null) return null;
+        if (
+          prevActive?.kind === "hub" &&
+          payload.kind === "hub" &&
+          prevActive.tag === payload.tag
+        ) {
+          return null;
+        }
+        if (
+          prevActive?.kind === "project" &&
+          payload.kind === "project" &&
+          prevActive.node.id === payload.node.id
+        ) {
+          return null;
+        }
+        return payload;
+      });
+    },
+    [layout],
+  );
 
   const closeModal = useCallback(() => {
     setSelection(null);
@@ -199,7 +284,7 @@ export function TagGraphVisualizationButton({ className }: { className?: string 
             aria-label="Tag map"
           >
             <div className="relative flex min-h-[45vh] min-w-0 flex-1 touch-none flex-col border-b border-border lg:min-h-0 lg:flex-[2] lg:border-b-0 lg:border-r lg:border-border">
-              <TagGraphScene layout={layout} selected={selection} onPick={pick} />
+              <TagGraphScene layout={layout} selected={displaySelection} onPick={pick} />
             </div>
             <aside className="flex min-h-0 w-full flex-1 flex-col border-border bg-muted/35 lg:h-full lg:w-[22rem] lg:flex-none lg:shrink-0 xl:w-[24rem] lg:border-l lg:border-border">
               <div
@@ -208,10 +293,15 @@ export function TagGraphVisualizationButton({ className }: { className?: string 
                 className="flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-5 outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-5"
               >
                 <TagSidePanel
-                  selection={selection}
+                  selection={displaySelection}
                   layout={layout}
                   tagProjectCounts={layout.tagProjectCount}
                   pick={pick}
+                  allCategories={allCategories}
+                  selectedCategories={selectedCategories}
+                  onToggleCategory={onToggleCategory}
+                  categoryTagMatchMode={categoryTagMatchMode}
+                  onCategoryTagMatchModeChange={onCategoryTagMatchModeChange}
                 />
               </div>
             </aside>
