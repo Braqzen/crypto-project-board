@@ -282,5 +282,12 @@
     "twitter": "https://x.com/SentinelP2P",
     "website": "https://sentinel.co",
     "category": ["vpn"]
+  },
+  {
+    "name": "MASQ",
+    "description": "Private browser and decentralized VPN.",
+    "twitter": "https://x.com/masq_ai",
+    "website": "https://www.masqbrowser.com",
+    "category": ["vpn", "privacy"]
   }
 ]
