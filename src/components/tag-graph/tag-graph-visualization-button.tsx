@@ -26,6 +26,11 @@ const categoryRowClass =
 const categoryRowHoverClass =
   "hover:border-muted-foreground/50 hover:bg-muted-foreground/12 dark:hover:border-muted-foreground/55 dark:hover:bg-muted-foreground/16 focus-visible:border-muted-foreground/50 focus-visible:bg-muted-foreground/12 dark:focus-visible:border-muted-foreground/55 dark:focus-visible:bg-muted-foreground/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
+function trimmedNoteParagraphs(notes: readonly string[] | undefined): string[] {
+  if (!notes?.length) return [];
+  return notes.map((n) => n.trim()).filter((n) => n.length > 0);
+}
+
 function selectionStillInLayout(selection: Exclude<PickPayload, null>, layout: TagGraphLayout): boolean {
   if (selection.kind === "hub") {
     return layout.hubs.some((h) => h.tag === selection.tag);
@@ -121,9 +126,11 @@ function TagSidePanel({
 
   const node = selection.node;
 
+  const noteParagraphs = trimmedNoteParagraphs(node.notes);
+
   return (
-    <div className="flex h-full min-h-0 flex-col gap-5 text-base">
-      <div>
+    <div className="flex h-full min-h-0 flex-col text-base">
+      <div className="shrink-0">
         <div className="flex items-center justify-between gap-3">
           <p className="min-w-0 flex-1 text-xl font-semibold leading-tight tracking-tight text-foreground sm:text-2xl">
             {node.label}
@@ -146,8 +153,19 @@ function TagSidePanel({
             </div>
           ) : null}
         </div>
-        <p className="mt-2 leading-relaxed text-muted-foreground">{node.summary}</p>
+        <p className="mt-2 border-b border-border pb-4 font-normal leading-relaxed text-foreground">
+          {node.summary}
+        </p>
       </div>
+      <section className="shrink-0 py-6" aria-label="Additional project details">
+        <div className="space-y-3 text-sm font-normal leading-relaxed text-foreground/86 sm:text-[0.953125rem]">
+          {noteParagraphs.length > 0 ? (
+            noteParagraphs.map((text, i) => <p key={i}>{text}</p>)
+          ) : (
+            <p>There are no project notes added at this time.</p>
+          )}
+        </div>
+      </section>
       <div className="flex min-h-0 flex-1 flex-col gap-2">
         <p className="shrink-0 text-base font-medium text-muted-foreground">Categories</p>
         <ul className="min-h-0 flex-1 space-y-2 overflow-y-auto pr-1">

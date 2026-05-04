@@ -13,6 +13,7 @@ export type TagGraphProjectNode = {
   id: string;
   label: string;
   summary: string;
+  notes?: readonly string[];
   twitter?: string;
   website?: string;
   hubTagsOnProject: string[];
@@ -327,11 +328,17 @@ export function buildTagGraphLayout(
 
     const twitter = project.twitter?.trim() || undefined;
     const website = project.website?.trim() || undefined;
+    const notesTrimmed =
+      project.notes
+        ?.map((n) => n.trim())
+        .filter((n) => n.length > 0) ?? [];
+    const notes = notesTrimmed.length > 0 ? notesTrimmed : undefined;
 
     projectNodes.push({
       id,
       label: project.name,
       summary: project.summary,
+      ...(notes ? { notes } : {}),
       ...(twitter ? { twitter } : {}),
       ...(website ? { website } : {}),
       hubTagsOnProject,
