@@ -27,7 +27,7 @@
   --primary: #0969da;
   --muted: #f6f8fa;
   --muted-foreground: #57606a;
-  --border: #d0d7de;
+  --border: #adb8c6;
   --ring: #0969da;
 }
 
@@ -39,7 +39,7 @@
   --primary: #f4c542;
   --muted: #242a33;
   --muted-foreground: #aab2c0;
-  --border: #313946;
+  --border: #4a5568;
   --ring: #f4c542;
 }
 
@@ -53,10 +53,15 @@
   html {
     @apply font-sans;
     font-size: 110%;
-    }
+  }
 }
 
 @layer utilities {
+  /** Same edge mix as elevated surfaces so active toggles stay visually consistent */
+  .border-elevated {
+    border-color: color-mix(in oklab, var(--border) 82%, var(--foreground) 18%);
+  }
+
   .hide-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -67,7 +72,8 @@
 
   /** Matches projects table wrapper: solid border + card fill + layered shadow */
   .table-elevated-surface {
-    @apply border border-border bg-card;
+    @apply border bg-card;
+    border-color: color-mix(in oklab, var(--border) 82%, var(--foreground) 18%);
     box-shadow:
       0 1px 2px rgb(15 23 42 / 0.045),
       0 3px 10px -4px rgb(15 23 42 / 0.08);

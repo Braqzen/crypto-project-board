@@ -59,7 +59,7 @@ export function CategoryFilter({ categories, selected, onToggle, className }: Ca
                 type="checkbox"
                 checked={selected.has(category)}
                 onChange={() => onToggle(category)}
-                className="rounded border-input"
+                className="rounded border border-muted-foreground/48 dark:border-muted-foreground/52"
               />
               {category}
             </label>
