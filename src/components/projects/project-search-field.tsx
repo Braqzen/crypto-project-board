@@ -13,7 +13,7 @@ export function ProjectSearchField({
   value,
   onChange,
   label,
-  placeholder = "Search by name, description, or category",
+  placeholder = "Search by name, summary, or category",
 }: ProjectSearchFieldProps) {
   const inputClassName = mergeTailwindClasses(
     "table-elevated-surface h-10 w-full min-w-0 rounded-md px-3 text-sm",

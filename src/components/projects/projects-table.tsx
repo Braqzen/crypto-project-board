@@ -32,7 +32,7 @@ export function ProjectsTable({
           <TableHead className="max-w-[11rem] w-[13%] ps-4 pe-1">
             Name
           </TableHead>
-          <TableHead className="min-w-0 ps-4 pe-2">Description</TableHead>
+          <TableHead className="min-w-0 ps-4 pe-2">Summary</TableHead>
           <TableHead className="w-14 min-w-[3.75rem] px-3 text-center">
             Twitter
           </TableHead>
@@ -62,7 +62,7 @@ export function ProjectsTable({
               </TableCell>
               <TableCell className="ps-4 pe-1 py-2.5 align-middle font-medium">{project.name}</TableCell>
               <TableCell className="text-muted-foreground ps-4 pe-2 py-2.5 align-middle whitespace-normal leading-relaxed">
-                {project.description}
+                {project.summary}
               </TableCell>
               <TableCell className="w-14 min-w-[3.75rem] px-3 py-2.5 text-center align-middle">
                 <OptionalProjectIconLink

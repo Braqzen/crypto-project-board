@@ -25,7 +25,7 @@ export function useFilteredProjects(
     const matchingProjects = projects.filter((project) => {
       if (searchQueryLowercase) {
         const combinedSearchText =
-          `${project.name} ${project.description} ${project.category.join(" ")}`.toLowerCase();
+          `${project.name} ${project.summary} ${project.category.join(" ")}`.toLowerCase();
         if (!combinedSearchText.includes(searchQueryLowercase)) return false;
       }
       if (selectedCategories.size === 0) return true;

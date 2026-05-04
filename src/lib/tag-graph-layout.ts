@@ -12,7 +12,7 @@ export type TagGraphHub = {
 export type TagGraphProjectNode = {
   id: string;
   label: string;
-  description: string;
+  summary: string;
   twitter?: string;
   website?: string;
   hubTagsOnProject: string[];
@@ -331,7 +331,7 @@ export function buildTagGraphLayout(
     projectNodes.push({
       id,
       label: project.name,
-      description: project.description,
+      summary: project.summary,
       ...(twitter ? { twitter } : {}),
       ...(website ? { website } : {}),
       hubTagsOnProject,

@@ -1,6 +1,6 @@
 export type Project = {
   name: string;
-  description: string;
+  summary: string;
   twitter?: string;
   website?: string;
   category: string[];

@@ -146,7 +146,7 @@ function TagSidePanel({
             </div>
           ) : null}
         </div>
-        <p className="mt-2 leading-relaxed text-muted-foreground">{node.description}</p>
+        <p className="mt-2 leading-relaxed text-muted-foreground">{node.summary}</p>
       </div>
       <div className="flex min-h-0 flex-1 flex-col gap-2">
         <p className="shrink-0 text-base font-medium text-muted-foreground">Categories</p>

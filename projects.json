@@ -1,293 +1,300 @@
 [
   {
     "name": "Aave",
-    "description": "Non-custodial liquidity protocol (borrowing and lending).",
+    "summary": "Non-custodial liquidity protocol (borrowing and lending).",
     "twitter": "https://x.com/aaveaave",
     "website": "https://aave.com",
-    "category": ["defi", "ethereum"]
+    "category": ["app", "defi", "ethereum"]
   },
   {
     "name": "Uniswap",
-    "description": "Decentralized exchange.",
+    "summary": "Decentralized exchange.",
     "twitter": "https://x.com/Uniswap",
-    "category": ["defi", "dex", "exchange", "ethereum"]
+    "category": ["app", "defi", "dex", "exchange", "ethereum"]
   },
   {
     "name": "Phantom",
-    "description": "Browser based hot wallet.",
+    "summary": "Browser based hot wallet.",
     "twitter": "https://twitter.com/phantom",
     "website": "https://phantom.app",
-    "category": ["wallet", "solana"]
+    "category": ["app", "wallet", "solana"]
   },
   {
     "name": "Ledger",
-    "description": "Hardware wallet.",
+    "summary": "Hardware wallet.",
     "twitter": "https://x.com/Ledger",
     "website": "https://www.ledger.com",
-    "category": ["wallet", "hardware"]
+    "category": ["app", "wallet", "hardware"]
   },
   {
     "name": "OpenSea",
-    "description": "NFT marketplace.",
+    "summary": "NFT marketplace.",
     "twitter": "https://x.com/opensea",
     "website": "https://opensea.io",
-    "category": ["nft", "marketplace", "ethereum"]
+    "category": ["app", "nft", "marketplace", "ethereum"]
   },
   {
     "name": "Trezor",
-    "description": "Hardware wallet.",
+    "summary": "Hardware wallet.",
     "twitter": "https://x.com/Trezor",
     "website": "https://trezor.io",
-    "category": ["wallet", "hardware"]
+    "category": ["app", "wallet", "hardware"]
   },
   {
     "name": "MetaMask",
-    "description": "Browser based hot wallet.",
+    "summary": "Browser based hot wallet.",
     "twitter": "https://x.com/MetaMask",
     "website": "https://metamask.io",
-    "category": ["wallet", "ethereum"]
+    "category": ["app", "wallet", "ethereum"]
   },
   {
     "name": "Nonlogs",
-    "description": "Private exchange.",
+    "summary": "Private exchange.",
     "twitter": "https://x.com/Nonlogs",
     "website": "https://nonlogs.io",
-    "category": ["exchange", "cex", "privacy"]
+    "category": ["app", "cex", "exchange", "privacy"]
   },
   {
     "name": "Monero",
-    "description": "Private, anonymous cryptocurrency.",
+    "summary": "Private, anonymous cryptocurrency.",
     "twitter": "https://x.com/Monero",
     "website": "https://getmonero.org",
-    "category": ["chain", "privacy"]
+    "category": ["network", "privacy"]
   },
   {
     "name": "Zcash",
-    "description": "Optionally private cryptocurrency.",
+    "summary": "Optionally private cryptocurrency.",
     "twitter": "https://x.com/Zcash",
     "website": "https://z.cash",
-    "category": ["chain", "privacy"]
+    "category": ["network", "privacy"]
   },
   {
     "name": "Edge Wallet",
-    "description": "Non-custodial hot wallet.",
+    "summary": "Non-custodial hot wallet.",
     "twitter": "https://x.com/EdgeWallet",
     "website": "https://edge.app",
-    "category": ["wallet"]
+    "category": ["app", "wallet"]
   },
   {
     "name": "Nym",
-    "description": "Private, decentralized VPN.",
+    "summary": "Private, decentralized VPN.",
     "twitter": "https://x.com/nym",
     "website": "https://nym.com",
-    "category": ["vpn", "privacy"]
+    "category": ["app", "vpn", "privacy"]
   },
   {
     "name": "Eureka Builder",
-    "description": "Programmable Ethereum Block Builder.",
+    "summary": "Programmable Ethereum Block Builder.",
     "twitter": "https://x.com/EurekaBuilder",
     "website": "https://eurekabuilder.xyz",
-    "category": ["ethereum", "block-builder"]
+    "category": ["operator", "ethereum", "block-builder"]
   },
   {
     "name": "Signet",
-    "description": "An Ethereum rollup.",
+    "summary": "An Ethereum rollup.",
     "twitter": "https://x.com/signetsh",
     "website": "https://signet.sh",
-    "category": ["rollup", "ethereum"]
+    "category": ["network", "rollup", "ethereum"]
   },
   {
     "name": "Lighthouse",
-    "description": "Ethereum consensus client.",
+    "summary": "Ethereum consensus client.",
     "twitter": "https://x.com/sigp_io",
     "website": "https://sigmaprime.io",
     "category": ["consensus-client", "ethereum"]
   },
   {
     "name": "Titan Builder",
-    "description": "Ethereum Block Builder.",
+    "summary": "Ethereum Block Builder.",
     "twitter": "https://x.com/titanbuilderxyz",
     "website": "https://titanbuilder.xyz",
-    "category": ["ethereum", "block-builder"]
+    "category": ["operator", "ethereum", "block-builder"]
   },
   {
     "name": "Offline Protocol",
-    "description": "Privacy-focused mesh network.",
+    "summary": "Privacy-focused mesh network.",
     "twitter": "https://x.com/OfflineProtocol",
     "website": "https://offlineprotocol.com",
     "category": ["communication", "privacy"]
   },
   {
     "name": "Keystone",
-    "description": "Hardware wallet.",
+    "summary": "Hardware wallet.",
     "twitter": "https://x.com/KeystoneWallet",
     "website": "https://keyst.one",
-    "category": ["wallet", "hardware"]
+    "category": ["app", "wallet", "hardware"]
   },
   {
     "name": "Lodestar",
-    "description": "Ethereum consensus client.",
+    "summary": "Ethereum consensus client.",
     "twitter": "https://x.com/lodestar_eth",
     "website": "https://lodestar.chainsafe.io",
     "category": ["consensus-client", "ethereum"]
   },
   {
     "name": "Nimbus",
-    "description": "Ethereum light client.",
+    "summary": "Ethereum light client.",
     "twitter": "https://x.com/ethnimbus",
     "website": "https://nimbus.team",
     "category": ["light-client", "ethereum"]
   },
   {
     "name": "Prysm",
-    "description": "Ethereum consensus client.",
+    "summary": "Ethereum consensus client.",
     "twitter": "https://x.com/prylabs",
     "category": ["consensus-client", "ethereum"]
   },
   {
     "name": "Besu",
-    "description": "Ethereum execution client.",
+    "summary": "Ethereum execution client.",
     "twitter": "https://x.com/hyperledgerbesu",
     "website": "https://besu.hyperledger.org",
     "category": ["execution-client", "ethereum"]
   },
   {
     "name": "Nockchain",
-    "description": "Verification network for compute.",
+    "summary": "Verification network for compute.",
     "twitter": "https://x.com/nockchain",
     "website": "https://nockchain.org",
-    "category": ["chain", "proofs"]
+    "category": ["network", "proofs"]
   },
   {
     "name": "Anoma",
-    "description": "Intent-centric decentralized solver network.",
+    "summary": "Intent-centric decentralized solver network.",
     "twitter": "https://x.com/anoma",
     "website": "https://anoma.net",
-    "category": ["solver", "intent"]
+    "category": ["network", "solver", "intent"]
   },
   {
     "name": "Namada",
-    "description": "Cross-chain privacy preserving blockchain.",
+    "summary": "Cross-chain privacy preserving blockchain.",
     "twitter": "https://x.com/namada",
     "website": "https://namada.net",
-    "category": ["chain", "privacy"]
+    "category": ["network", "privacy"]
   },
   {
     "name": "CowSwap",
-    "description": "Decentralized exchange.",
+    "summary": "Decentralized exchange.",
     "twitter": "https://x.com/CowSwap",
-    "category": ["defi", "dex", "exchange", "ethereum"]
+    "category": ["app", "defi", "dex", "exchange", "ethereum"]
   },
   {
     "name": "Bubblemaps",
-    "description": "Visualizing on-chain activity.",
+    "summary": "Visualizing on-chain activity.",
     "twitter": "https://x.com/bubblemaps",
     "website": "https://bubblemaps.io",
-    "category": ["analytics", "tracking"]
+    "category": ["app", "analytics"]
   },
   {
     "name": "Enso",
-    "description": "Intent-based cross-chain execution layer/blockchain.",
+    "summary": "Intent-based cross-chain execution layer/blockchain.",
     "twitter": "https://x.com/ensobuild",
     "website": "https://enso.build",
-    "category": ["chain", "intent"]
+    "category": ["network", "intent"]
   },
   {
     "name": "OneBalance",
-    "description": "Cross-chain unified account.",
+    "summary": "Cross-chain unified account.",
     "twitter": "https://x.com/OneBalance_io",
     "website": "https://onebalance.io",
-    "category": ["wallet"]
+    "category": ["app", "wallet"]
   },
   {
     "name": "Phylax Systems",
-    "description": "Risk, compliance, and exploit prevention infrastructure.",
+    "summary": "Risk, compliance, and exploit prevention infrastructure.",
     "twitter": "https://x.com/phylaxsystems",
     "website": "https://phylax.systems",
-    "category": ["sidecar", "security"]
+    "category": ["operator", "sidecar", "security"]
   },
   {
     "name": "Beaver Builder",
-    "description": "Ethereum Block Builder.",
+    "summary": "Ethereum Block Builder.",
     "twitter": "https://x.com/beaverbuild",
     "website": "https://beaverbuild.org",
-    "category": ["ethereum", "block-builder"]
+    "category": ["operator", "ethereum", "block-builder"]
   },
   {
     "name": "DA Builder",
-    "description": "Ethereum Block Builder.",
+    "summary": "Ethereum Block Builder.",
     "twitter": "https://x.com/spire_labs",
     "website": "https://www.spire.dev/",
-    "category": ["ethereum", "block-builder"]
+    "category": ["operator", "ethereum", "block-builder"]
   },
   {
     "name": "Quasar Builder",
-    "description": "Ethereum Block Builder.",
+    "summary": "Ethereum Block Builder.",
     "twitter": "https://x.com/QuasarBuilder",
     "website": "https://quasar.win",
-    "category": ["ethereum", "block-builder"]
+    "category": ["operator", "ethereum", "block-builder"]
   },
   {
     "name": "Fileverse",
-    "description": "Private collaboration suite.",
+    "summary": "Private collaboration suite.",
     "twitter": "https://x.com/fileverse",
     "website": "https://fileverse.io",
-    "category": ["privacy"]
+    "category": ["app", "privacy"]
   },
   {
     "name": "SilentSwap",
-    "description": "Private decentralized cross-chain exchange.",
+    "summary": "Private decentralized cross-chain exchange.",
     "twitter": "https://x.com/SilentSwap",
     "website": "https://silentswap.com",
-    "category": ["defi", "dex", "exchange", "privacy"]
+    "category": ["app", "defi", "dex", "exchange", "privacy"]
   },
   {
     "name": "Intuition",
-    "description": "Decentralized knowledge graph.",
+    "summary": "Decentralized knowledge graph.",
     "twitter": "https://x.com/0xIntuition",
     "website": "https://intuition.systems",
-    "category": ["reputation", "attestation", "data", "chain"]
+    "category": ["network", "reputation", "attestation", "data"]
   },
   {
     "name": "Irys",
-    "description": "Decentralized programmable datachain.",
+    "summary": "Decentralized programmable datachain.",
     "twitter": "https://x.com/irys_xyz",
     "website": "https://irys.xyz",
-    "category": ["storage", "data", "chain"]
+    "category": ["network", "storage", "data"]
   },
   {
     "name": "Swarm",
-    "description": "Decentralised storage and content delivery network.",
+    "summary": "Decentralised storage and content delivery network.",
     "twitter": "https://x.com/ethswarm",
     "website": "https://ethswarm.org/",
     "category": ["storage", "communication"]
   },
   {
     "name": "Thorchain",
-    "description": "Decentralized cross-chain exchange for native assets.",
+    "summary": "Decentralized cross-chain exchange for native assets.",
     "twitter": "https://x.com/THORChain",
     "website": "https://thorchain.org",
     "category": ["defi", "dex", "exchange"]
   },
   {
     "name": "Orchid",
-    "description": "Decentralized P2P PAYG marketplace for bandwidth (VPN).",
+    "summary": "Decentralized P2P PAYG marketplace for bandwidth (VPN).",
     "twitter": "https://x.com/Orchidprivacy",
     "website": "https://www.orchid.com",
-    "category": ["vpn"]
+    "category": ["app", "vpn"]
   },
   {
     "name": "Sentinel",
-    "description": "Decentralized P2P layer for bandwidth (VPN).",
+    "summary": "Decentralized P2P layer for bandwidth (VPN).",
     "twitter": "https://x.com/SentinelP2P",
     "website": "https://sentinel.co",
-    "category": ["vpn"]
+    "category": ["app", "vpn"]
   },
   {
     "name": "MASQ",
-    "description": "Private browser and decentralized VPN.",
+    "summary": "Private browser and decentralized VPN.",
     "twitter": "https://x.com/masq_ai",
     "website": "https://www.masqbrowser.com",
-    "category": ["vpn", "privacy"]
+    "category": ["app", "vpn", "privacy"]
+  },
+  {
+    "name": "Arkham Intel",
+    "summary": "Chain analytics and tracking.",
+    "twitter": "https://x.com/arkham",
+    "website": "https://intel.arkm.com/",
+    "category": ["app", "analytics"]
   }
 ]
